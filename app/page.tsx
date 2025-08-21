@@ -1,103 +1,117 @@
-import Image from "next/image";
+import { User, Briefcase, Code, Mail } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import AboutMe from "@/public/images/About.png"
+import Plasma from "@/components/Plasma/Plasma"
+import MailIcon from "@/public/icons/3dicons-mail-iso-color.png"
+import SkillIcon from "@/public/icons/3dicons-lab-dynamic-color.png"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="h-screen bg-gradient-to-br from-background via-background to-muted/20 p-4 sm:p-8 md:p-12 lg:p-18 xl:p-24 relative z-10">
+      {/* Main Content */}
+      <main className="h-full relative z-10 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 p-2 sm:p-4 h-full">
+          {/* About Me - Medium */}
+          <div className="col-span-1 row-span-2 md:row-span-4">
+            <Link href="/about" className="block h-full">
+            
+              <div className="h-full bg-[#FF6500] border-border rounded-3xl sm:rounded-4xl p-4 sm:p-6 flex flex-col hover:scale-102 transition-all duration-300">
+                <h2 className="text-base sm:text-lg md:text-2xl lg:text-3xl text-black/80 font-semibold mb-2">About Me</h2>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <Image 
+                    src={AboutMe.src} 
+                    alt="Ankit Rawat" 
+                    width={300} 
+                    height={300}
+                    className="w-32 z-20 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 object-cover rounded-lg"
+                  />
+                </div>
+                <p className="text-sm sm:text-base md:text-lg text-black/80">
+                  Learn about my background, experience, and what drives me in technology.
+                </p>          
+              </div>
+            </Link>
+          </div>
+
+          {/* Intro - Large */}
+          <div className="col-span-1 sm:col-span-2 row-span-1 sm:row-span-2 md:row-span-2 lg:row-span-3">
+              <div className="h-full p-4 sm:p-6 flex flex-col justify-center">
+                <p className="text-xs sm:text-sm md:text-lg text-center sm:text-end text-muted-foreground">
+                 Hi I&apos;m
+                </p>
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-6xl text-center sm:text-end font-semibold mb-2">ANKIT RAWAT</h2>
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-6xl text-center sm:text-end text-muted-foreground flex-grow">
+                The Indian techie you can rely on.
+                </p>
+              </div>
+          </div>
+
+          {/* Projects - Large */}
+          <div className="col-span-1 row-span-1 md:row-span-2 lg:row-span-3 h-[300px] w-full relative overflow-hidden rounded-2xl sm:rounded-4xl">
+            {/* Plasma Background */}
+            <div className="absolute inset-0 z-10 w-full h-full">
+              <Plasma
+                color="#8B5DFF"
+                speed={0.3}
+                direction="reverse"
+                scale={1.1}
+                opacity={1}
+                mouseInteractive={true}
+              />
+            </div>
+            
+            {/* Content */}
+            <Link href="/projects" className="block h-full relative z-10">
+              <div className="h-full bg-transparent border-2 border-border rounded-2xl sm:rounded-4xl p-4 sm:p-6 flex flex-col">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="p-2 rounded-lg bg-primary/10">
+                    <Briefcase className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </div>
+                </div>
+                <h2 className="text-base sm:text-lg font-semibold mb-2 text-white">Projects</h2>
+                <p className="text-xs sm:text-sm text-white flex-grow">
+                  Explore my portfolio of web applications, tools, and creative solutions.
+                </p>
+              </div>
+            </Link>
+          </div>
+          {/* Skills - Medium */}
+          <div className="col-span-2">
+            <Link href="/skills" className="block h-full ">
+              <div className="h-full bg-[#379777] border-2 border-border rounded-xl sm:rounded-3xl p-4 sm:p-6 flex flex-col group ">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="p-1 rounded-lg bg-primary/10 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
+                    <Image src={SkillIcon.src} alt="Mail" width={60} height={60} />
+                  </div>
+                </div>
+                <h2 className="text-base sm:text-lg font-semibold mb-2">Skills & Tech</h2>
+                <p className="text-xs sm:text-sm text-white/80 flex-grow">
+                  Discover my technical expertise, programming languages, and frameworks.
+                </p>
+              </div>
+            </Link>
+          </div>
+
+                    {/* Contact - Small */}
+            <div className="col-span-1">
+            <Link href="/contact" className="block h-full">
+              <div className="h-full bg-card border-2 border-border rounded-xl sm:rounded-3xl p-4 sm:p-6 flex flex-col group hover:scale-105 transition-all duration-300">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="p-1 rounded-lg bg-primary/5 group-hover:scale-105 group-hover:rotate-6 transition-all duration-300">
+                    <Image src={MailIcon.src} alt="Mail" width={60} height={60} />
+                  </div>
+                </div>
+                <h2 className="text-base sm:text-lg font-semibold mb-2">Get in Touch</h2>
+                <p className="text-xs sm:text-sm text-muted-foreground flex-grow">
+                  Ready to collaborate? Let&apos;s discuss your next project or opportunity.
+                </p>
+              </div>
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
-  );
+  )
 }
