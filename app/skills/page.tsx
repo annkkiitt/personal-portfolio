@@ -1,9 +1,10 @@
+import { IconCloudDemo } from "@/components/icon-cloud"
 import { ArrowLeft, Code, Briefcase, User } from "lucide-react"
 import Link from "next/link"
 
 export default function SkillsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <div className="min-h-screen">
       {/* Header */}
       <header className="absolute top-0 left-0 right-0 z-10 p-6">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -49,16 +50,8 @@ export default function SkillsPage() {
             {/* Backend - Medium */}
             <div className="col-span-1 md:col-span-2 row-span-1 md:row-span-2">
               <Link href="/skills/backend" className="block h-full">
-                <div className="h-full bg-card border-2 border-border rounded-2xl p-6 flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 rounded-lg bg-primary/10">
-                      <Briefcase className="h-5 w-5" />
-                    </div>
-                  </div>
-                  <h2 className="text-lg font-semibold mb-2">Backend</h2>
-                  <p className="text-sm text-muted-foreground flex-grow">
-                    Node.js, Python, databases, APIs, and server-side development.
-                  </p>
+                <div className="h-full border-2 bg-[#379777]/80 border-border rounded-2xl p-6 flex flex-col">
+                <IconCloudDemo/>
                 </div>
               </Link>
             </div>
@@ -100,14 +93,6 @@ export default function SkillsPage() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="absolute bottom-0 left-0 right-0 p-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs text-muted-foreground">
-            Discover my technical expertise and capabilities
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }
