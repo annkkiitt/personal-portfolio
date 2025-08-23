@@ -1,5 +1,9 @@
 import { IconCloudDemo } from "@/components/icon-cloud"
-import { ArrowLeft, Code, Briefcase, User } from "lucide-react"
+import { AnimatedGradientText } from "@/components/magicui/animated-gradient-text"
+import { OrbitingCircles } from "@/components/magicui/orbiting-circles"
+import { OrbitingCirclesDemo } from "@/components/orbiting-circle-demo"
+import { cn } from "@/lib/utils"
+import { ArrowLeft, Code, Briefcase, User, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
 export default function SkillsPage() {
@@ -32,17 +36,54 @@ export default function SkillsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {/* Frontend - Medium */}
             <div className="col-span-1 md:col-span-2 row-span-1 md:row-span-2">
-              <Link href="/skills/frontend" className="block h-full">
+              <Link href="/skills" className="block h-full">
                 <div className="h-full bg-card border-2 border-border rounded-2xl p-6 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div className="p-2 rounded-lg bg-primary/10">
                       <Code className="h-5 w-5" />
                     </div>
                   </div>
-                  <h2 className="text-lg font-semibold mb-2">Frontend</h2>
+                  <div className="mb-2 sm:mb-4 lg:mb-6">
+
+                  <h2 className="text-lg font-semibold flex flex-row gap-4">AWS Cloud
+                  <div className="group mb-2 relative w-fit flex items-center justify-center rounded-full px-4 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f] ">
+                      <span
+                        className={cn(
+                          "absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-[#ffaa40]/50 via-[#9c40ff]/50 to-[#ffaa40]/50 bg-[length:300%_100%] p-[1px]",
+                        )}
+                        style={{
+                          WebkitMask:
+                            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                          WebkitMaskComposite: "destination-out",
+                          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                          maskComposite: "subtract",
+                          WebkitClipPath: "padding-box",
+                        }}
+                      />
+                      🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+                      <AnimatedGradientText className="text-xs font-medium">
+                        3x AWS Certified
+                      </AnimatedGradientText>
+                    </div>
+                  </h2>
                   <p className="text-sm text-muted-foreground flex-grow">
-                    React, Next.js, TypeScript, Tailwind CSS, and modern web technologies.
+                    Amplify Gen2, Lambda, S3, DynamoDB, API Gateway, Bedrock, and more.
                   </p>
+                  </div>
+
+                  <div className="mb-2 sm:mb-4 lg:mb-6">
+                  <h2 className="text-lg font-semibold mb-1">Frontend</h2>
+                  <p className="text-sm text-muted-foreground flex-grow">
+                    React, Next.js, TypeScript, Tailwind CSS, Shadcn UI, and modern web technologies.
+                  </p>
+                  </div>
+
+                  <div className="mb-2 sm:mb-4 lg:mb-6">
+                  <h2 className="text-lg font-semibold mb-1">Backend</h2>
+                  <p className="text-sm text-muted-foreground flex-grow">
+                    Node.js, Express, MongoDB, and more.
+                  </p>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -51,7 +92,7 @@ export default function SkillsPage() {
             <div className="col-span-1 md:col-span-2 row-span-1 md:row-span-2">
               <Link href="/skills/backend" className="block h-full">
                 <div className="h-full border-2 bg-[#379777]/80 border-border rounded-2xl p-6 flex flex-col">
-                <IconCloudDemo/>
+                <OrbitingCirclesDemo/>
                 </div>
               </Link>
             </div>
@@ -74,7 +115,7 @@ export default function SkillsPage() {
             </div>
 
             {/* Soft Skills - Small */}
-            <div className="col-span-1 row-span-1">
+            <div className="col-span-1 lg:col-span-3 row-span-3 lg:row-span-1">
               <Link href="/skills/soft-skills" className="block h-full">
                 <div className="h-full bg-card border-2 border-border rounded-2xl p-6 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
