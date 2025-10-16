@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Developer & Designer",
-  description: "Personal portfolio showcasing web development projects, skills, and experience.",
+  title: "Ankit Rawat | Cloud Developer",
+  description: "Personal portfolio showcasing AWS Developer skills.",
 };
 
 export default function RootLayout({

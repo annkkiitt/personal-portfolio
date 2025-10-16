@@ -174,7 +174,7 @@ export default function SkillsPage() {
                        
                        <div className="mt-auto">
                          <Link 
-                           href="https://www.credly.com/earner/earned/badge/a22bed59-b1ca-41ed-bae3-d1185eea6a8f"
+                           href="https://www.credly.com/badges/a22bed59-b1ca-41ed-bae3-d1185eea6a8f/public_url"
                            target="_blank"
                            rel="noopener noreferrer"
                            className="flex w-fit items-center space-x-1 text-xs text-gray-700 border border-gray-300 rounded px-3 py-1 bg-gray-50 transition-colors hover:bg-gray-100"
