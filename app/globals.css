@@ -1,135 +1,205 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-
-@custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, monospace;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+}
+
+/* Not `inline`, so utilities compile to var(--color-*) and the dark blocks
+   below can re-point them at runtime.
+   "paper" is the page ground and "ink" is what is written on it — in dark mode
+   the paper simply goes dark and the ink goes light. Both themes sit on the
+   same warm axis (oklch hue ~96, chroma ~0.011); only lightness flips. */
+@theme {
+  --color-paper: #ECEAE3;
+  --color-paper-dim: #DEDCD3;
+  --color-ink: #17160F;
+  --color-ink-body: #3A382F;
+  --color-ink-muted: #6C6A61;
+  --color-ink-faint: #9A988E;
+
+  /* Semantic aliases for shared UI primitives */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-paper);
+  --color-card-foreground: var(--color-ink);
+  --color-muted: var(--color-paper-dim);
+  --color-muted-foreground: var(--color-ink-muted);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-paper);
+  --color-secondary: var(--color-paper-dim);
+  --color-secondary-foreground: var(--color-ink);
+  --color-accent: var(--color-paper-dim);
+  --color-accent-foreground: var(--color-ink);
+  --color-border: color-mix(in oklab, var(--color-ink) 14%, transparent);
+  --color-input: color-mix(in oklab, var(--color-ink) 18%, transparent);
+  --color-ring: color-mix(in oklab, var(--color-ink) 35%, transparent);
+  --color-destructive: #B4453A;
+
+  --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
-  @keyframes orbit {
-  0% {
-    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
-    }
-  100% {
-    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
-  }
-  --animate-gradient: gradient 8s linear infinite
-;
-  @keyframes gradient {
-  to {
-    background-position: var(--bg-size, 300%) 0;}}}
-
-:root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
 }
 
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+/* Dark theme ---------------------------------------------------------------
+   A warm charcoal rather than black — pure black against off-white text blooms
+   and reads harsher than this design wants. Text lands at 12.7:1 on the ground
+   (light mode is 15.1:1), so dark mode is deliberately the softer of the two. */
+@layer theme {
+  :root {
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --color-paper: #1D1C17;
+      --color-paper-dim: #2C2A24;
+      --color-ink: #E0DED7;
+      --color-ink-body: #B9B7B0;
+      --color-ink-muted: #8B8981;
+      --color-ink-faint: #6B6961;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --color-paper: #1D1C17;
+    --color-paper-dim: #2C2A24;
+    --color-ink: #E0DED7;
+    --color-ink-body: #B9B7B0;
+    --color-ink-muted: #8B8981;
+    --color-ink-faint: #6B6961;
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+  html {
+    scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-background text-foreground;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* Scroll reveal — elements start hidden and are released by RevealObserver.
+   Without JS (or with reduced motion) they stay visible. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Badge collage — each tile follows its section in, a beat after the last.
+   An inner wrapper carries the motion so neither the tile's stagger offset
+   nor the card's hover lift shares a transition with it. */
+.badge-anim {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(0.25s + var(--i, 0) * 0.12s);
+}
+
+.is-revealed .badge-anim {
+  opacity: 1;
+  transform: none;
+}
+
+/* Theme toggle icons are swapped in CSS, not React state, so the right one is
+   painted on first frame with no hydration mismatch. */
+.theme-icon-to-dark {
+  display: block;
+}
+
+.theme-icon-to-light {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-icon-to-dark {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .theme-icon-to-light {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] .theme-icon-to-dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-to-light {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-icon-to-dark {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-icon-to-light {
+  display: none;
+}
+
+/* The ocean has two presentations (components/ocean/present.wgsl).
+   Dark: white particles on an opaque black stage, screened onto the dark
+   ground so the black drops out and only the light remains.
+   Light: the shader draws ink dots plus white glints and sheen on a
+   transparent canvas, so the stage just composites normally. An earlier CSS
+   inversion of the dark render could only darken the paper, which turned the
+   crests into smudges and lost the shine. Same theme selectors as the toggle
+   icons above; the component mirrors them to switch the shader. */
+.ocean-stage {
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .ocean-stage {
+    background-color: #000;
+    mix-blend-mode: screen;
+  }
+}
+
+:root[data-theme="dark"] .ocean-stage {
+  background-color: #000;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-reveal],
+  .badge-anim {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

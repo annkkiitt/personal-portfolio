@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif">
+  <rect width="800" height="500" fill="#FAFAF7"/>
+  <rect width="800" height="52" fill="#FFFFFF"/>
+  <line x1="0" y1="52" x2="800" y2="52" stroke="#E2E0D8"/>
+  <rect x="22" y="16" width="20" height="20" rx="5" fill="#6B2E2A"/>
+  <text x="50" y="31" font-size="13" font-weight="600" fill="#1F1E1A">Learnly</text>
+  <rect x="250" y="14" width="260" height="24" rx="12" fill="#F1F0EA"/>
+  <text x="266" y="30" font-size="10.5" fill="#A3A198">Search courses</text>
+  <text x="640" y="31" font-size="11" fill="#6C6A61">Teacher mode</text>
+  <circle cx="762" cy="26" r="13" fill="#D9CFC4"/>
+  <!-- chapters -->
+  <rect x="0" y="52" width="220" height="448" fill="#FFFFFF"/>
+  <line x1="220" y1="52" x2="220" y2="500" stroke="#E2E0D8"/>
+  <text x="22" y="84" font-size="13" font-weight="600" fill="#1F1E1A">Next.js from Zero</text>
+  <rect x="22" y="96" width="176" height="5" rx="2.5" fill="#EEE7E2"/>
+  <rect x="22" y="96" width="106" height="5" rx="2.5" fill="#6B2E2A"/>
+  <text x="22" y="118" font-size="10" fill="#6C6A61">60% complete</text>
+  <g font-size="11.5">
+    <circle cx="32" cy="152" r="7" fill="#6B2E2A"/><path d="M29 152l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <text x="48" y="156" fill="#3A382F">Introduction</text>
+    <circle cx="32" cy="188" r="7" fill="#6B2E2A"/><path d="M29 188l2 2 4-4" stroke="#fff" stroke-width="1.5" fill="none"/>
+    <text x="48" y="192" fill="#3A382F">Routing &amp; layouts</text>
+    <rect x="0" y="208" width="220" height="36" fill="#F6EFEC"/><rect x="0" y="208" width="3" height="36" fill="#6B2E2A"/>
+    <circle cx="32" cy="226" r="7" fill="none" stroke="#6B2E2A" stroke-width="1.6"/><path d="M30 223v6l5-3z" fill="#6B2E2A"/>
+    <text x="48" y="230" fill="#1F1E1A" font-weight="600">Server actions</text>
+    <circle cx="32" cy="264" r="7" fill="none" stroke="#C9C7BE" stroke-width="1.6"/>
+    <text x="48" y="268" fill="#8F8D84">Prisma &amp; MySQL</text>
+    <circle cx="32" cy="300" r="7" fill="none" stroke="#C9C7BE" stroke-width="1.6"/>
+    <text x="48" y="304" fill="#8F8D84">Auth with Clerk</text>
+    <rect x="25" y="330" width="14" height="11" rx="2" fill="none" stroke="#C9C7BE" stroke-width="1.5"/><path d="M28 330v-3a4 4 0 018 0v3" stroke="#C9C7BE" stroke-width="1.5" fill="none"/>
+    <text x="48" y="340" fill="#A3A198">Stripe checkout</text>
+  </g>
+  <!-- player -->
+  <rect x="246" y="76" width="530" height="270" rx="10" fill="#1F1C1A"/>
+  <rect x="246" y="76" width="530" height="270" rx="10" fill="url(#g)"/>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6B2E2A" stop-opacity=".55"/><stop offset="1" stop-color="#1F1C1A" stop-opacity="0"/></linearGradient></defs>
+  <circle cx="511" cy="200" r="28" fill="#FFFFFF" fill-opacity=".92"/>
+  <path d="M503 186v28l23-14z" fill="#6B2E2A"/>
+  <rect x="266" y="318" width="490" height="4" rx="2" fill="#FFFFFF" fill-opacity=".25"/>
+  <rect x="266" y="318" width="190" height="4" rx="2" fill="#FFFFFF"/>
+  <text x="266" y="306" font-size="10" fill="#FFFFFF" fill-opacity=".8" font-family="ui-monospace,SFMono-Regular,Menlo,monospace">04:12 / 11:30</text>
+  <!-- meta -->
+  <text x="246" y="380" font-size="17" font-weight="600" fill="#1F1E1A">Server actions</text>
+  <text x="246" y="400" font-size="11" fill="#6C6A61">Chapter 3 of 6  ·  11 min</text>
+  <rect x="640" y="364" width="136" height="36" rx="18" fill="#6B2E2A"/>
+  <text x="664" y="386" font-size="11.5" fill="#FFFFFF" font-weight="600">Mark complete</text>
+  <g fill="#D6D4CB">
+    <rect x="246" y="424" width="470" height="7" rx="3.5"/>
+    <rect x="246" y="440" width="430" height="7" rx="3.5"/>
+    <rect x="246" y="456" width="300" height="7" rx="3.5"/>
+  </g>
+</svg>
